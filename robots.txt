@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://burhanyanbolu-design.github.io/Gobybilly/sitemap.xml
+Sitemap: https://www.gobybilly.co.uk/sitemap.xml
