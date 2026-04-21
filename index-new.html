@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP Chauffeur & Airport Transfer Service | Essex | Go By Billy</title>
+<meta name="description" content="Go By Billy offers professional VIP chauffeur and airport transfer services across Chigwell, Loughton, Buckhurst Hill and Essex. Pre-book your executive transfer today.">
+<meta name="keywords" content="chauffeur Chigwell, airport transfer Loughton, VIP chauffeur Essex, executive car service Buckhurst Hill, Heathrow transfer Chigwell">
+<link rel="canonical" href="https://gobybilly.co.uk/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Go By Billy",
+  "description": "VIP Chauffeur & Transfer Service serving Essex and London",
+  "url": "https://gobybilly.co.uk",
+  "telephone": "+447901756001",
+  "priceRange": "££",
+  "areaServed": ["Chigwell","Loughton","Buckhurst Hill","Woodford","Chingford","Epping","Essex","London"],
+  "serviceType": ["Airport Transfer","VIP Chauffeur","Business Transfer","By The Hour"],
+  "aggregateRating": {"@type":"AggregateRating","ratingValue":"5","reviewCount":"1000"}
+}
+</script>
+
+<style>
+/* ── RESET & ROOT ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dim: rgba(201,168,76,0.15);
+  --dark: #080808;
+  --dark2: #0f0f0f;
+  --dark3: #181818;
+  --white: #f2ede6;
+  --grey: #6b6b6b;
+  --grey2: #9a9a9a;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
+/* ── CURSOR GLOW ── */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: 0.1s;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 56px;
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: padding 0.4s var(--ease-out), background 0.4s;
+}
+nav.scrolled { padding: 14px 56px; background: rgba(8,8,8,0.98); }
+.nav-logo { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+.nav-logo-main { font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: 4px; color: var(--white); }
+.nav-logo-sub { font-size: 8px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey2); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-actions { display: flex; gap: 12px; align-items: center; }
+.nav-call { font-size: 11px; letter-spacing: 1px; color: var(--grey2); text-decoration: none; transition: color 0.2s; }
+.nav-call:hover { color: var(--white); }
+.nav-book {
+  background: transparent; border: 1px solid var(--gold);
+  color: var(--gold); font-family: var(--font-body); font-size: 11px;
+  font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+  padding: 11px 24px; text-decoration: none; cursor: pointer;
+  transition: all 0.25s; position: relative; overflow: hidden;
+}
+.nav-book::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold); transform: translateX(-101%);
+  transition: transform 0.3s var(--ease-out);
+}
+.nav-book:hover::before { transform: translateX(0); }
+.nav-book span { position: relative; z-index: 1; transition: color 0.3s; }
+.nav-book:hover span { color: var(--dark); }
+
+/* ── HAMBURGER ── */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--white); transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0; top: 60px; z-index: 998;
+  background: rgba(8,8,8,0.98); backdrop-filter: blur(20px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--grey2); text-decoration: none; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden; padding-top: 80px;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 56px 120px;
+  position: relative; z-index: 2;
+}
+.hero-right {
+  position: relative; overflow: hidden;
+}
+.hero-right img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 8s var(--ease-out);
+}
+.hero-right::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--dark) 0%, transparent 40%);
+}
+.hero-right::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: rgba(8,8,8,0.35);
+}
+.hero-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+  opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease-out) forwards;
+}
+.hero-label-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+  font-weight: 300; line-height: 1.05; letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  opacity: 0; animation: fadeUp 0.9s 0.35s var(--ease-out) forwards;
+}
+.hero h1 strong { font-weight: 700; color: var(--gold); display: block; font-style: italic; }
+.hero-desc {
+  font-size: 15px; line-height: 1.8; color: var(--grey2); max-width: 440px;
+  margin-bottom: 40px;
+  opacity: 0; animation: fadeUp 0.9s 0.5s var(--ease-out) forwards;
+}
+.hero-actions {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.9s 0.65s var(--ease-out) forwards;
+}
+.btn-primary {
+  background: var(--gold); color: var(--dark);
+  font-family: var(--font-body); font-size: 11px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 36px; text-decoration: none;
+  transition: all 0.25s; position: relative; overflow: hidden;
+}
+.btn-primary::after { content: ''; position: absolute; inset: 0; background: var(--white); transform: scaleX(0); transform-origin: right; transition: transform 0.3s var(--ease-out); }
+.btn-primary:hover::after { transform: scaleX(1); transform-origin: left; }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-secondary {
+  background: transparent; color: var(--white);
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 36px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.25s;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+.hero-stats {
+  display: flex; gap: 40px;
+  margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.06);
+  opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease-out) forwards;
+}
+.stat-item {}
+.stat-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 600; color: var(--gold); line-height: 1; }
+.stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); margin-top: 4px; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── TICKER ── */
+.ticker { background: var(--gold); padding: 11px 0; overflow: hidden; position: relative; z-index: 3; }
+.ticker-track { display: flex; animation: ticker 25s linear infinite; white-space: nowrap; }
+.ticker-item { font-family: var(--font-body); font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--dark); padding: 0 44px; }
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── SECTIONS ── */
+.section { padding: 100px 56px; position: relative; }
+.section-eyebrow { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.section-title { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 300; line-height: 1.1; }
+.section-title strong { font-weight: 700; font-style: italic; }
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── SERVICES ── */
+.services-wrap { background: var(--dark2); }
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; border: 1px solid rgba(255,255,255,0.05); }
+.service-card {
+  padding: 40px 32px 36px; border-right: 1px solid rgba(255,255,255,0.05);
+  position: relative; overflow: hidden; cursor: default;
+  transition: background 0.4s;
+}
+.service-card:last-child { border-right: none; }
+.service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease-out); }
+.service-card:hover { background: rgba(255,255,255,0.02); }
+.service-card:hover::after { transform: scaleX(1); }
+.service-no { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: rgba(201,168,76,0.12); margin-bottom: 20px; line-height: 1; }
+.service-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; }
+.service-desc { font-size: 13px; line-height: 1.8; color: var(--grey2); margin-bottom: 24px; }
+.service-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.service-link::after { content: '→'; transition: transform 0.2s; }
+.service-link:hover::after { transform: translateX(4px); }
+
+/* ── AREAS ── */
+.areas-wrap { background: var(--dark); }
+.areas-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+.areas-list { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
+.area-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  cursor: default;
+  transition: padding-left 0.3s var(--ease-out);
+}
+.area-row:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+.area-row:hover { padding-left: 8px; }
+.area-row:hover .area-name { color: var(--gold); }
+.area-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; transition: color 0.2s; }
+.area-service { font-size: 10px; letter-spacing: 1.5px; color: var(--grey); text-transform: uppercase; }
+.areas-map-placeholder {
+  background: var(--dark3); border: 1px solid rgba(201,168,76,0.12);
+  aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px; color: var(--grey);
+  font-size: 13px; letter-spacing: 1px;
+  position: relative; overflow: hidden;
+}
+.areas-map-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 40% 50%, rgba(201,168,76,0.05) 0%, transparent 60%); }
+.map-icon { font-size: 2.5rem; }
+
+/* ── PRICING ── */
+.pricing-wrap { background: var(--dark2); }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.05); margin-top: 56px; }
+.price-panel { background: var(--dark2); padding: 40px; }
+.price-panel-title {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 8px;
+}
+.price-panel-subtitle { font-size: 12px; color: var(--grey); margin-bottom: 28px; }
+.price-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.price-row:last-of-type { border-bottom: none; }
+.price-dest { font-size: 14px; color: var(--white); }
+.price-dest-note { font-size: 11px; color: var(--grey); margin-top: 2px; }
+.price-amount { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--gold); }
+.price-note { margin-top: 24px; padding: 14px 16px; background: rgba(201,168,76,0.05); border-left: 2px solid var(--gold); font-size: 12px; color: var(--grey2); line-height: 1.6; }
+
+/* ── VEHICLE ── */
+.vehicle-wrap { background: var(--dark); }
+.vehicle-inner { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 560px; }
+.vehicle-img { position: relative; overflow: hidden; }
+.vehicle-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out); }
+.vehicle-wrap:hover .vehicle-img img { transform: scale(1.03); }
+.vehicle-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 80%, var(--dark)); }
+.vehicle-details { padding: 72px 56px; display: flex; flex-direction: column; justify-content: center; background: var(--dark); }
+.vehicle-features { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+.feature-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 14px; color: var(--grey2);
+}
+.feature-row:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+.feature-check { width: 18px; height: 18px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 9px; color: var(--gold); }
+
+/* ── REVIEWS ── */
+.reviews-wrap { background: var(--dark2); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); margin-top: 56px; }
+.review-card { background: var(--dark2); padding: 36px 32px; position: relative; overflow: hidden; transition: background 0.3s; }
+.review-card:hover { background: var(--dark3); }
+.review-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 16px; }
+.review-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: rgba(242,237,230,0.75); margin-bottom: 24px; font-style: italic; }
+.review-author { font-size: 13px; font-weight: 500; color: var(--white); }
+.review-detail { font-size: 11px; color: var(--grey); margin-top: 3px; letter-spacing: 0.5px; }
+
+/* ── ABOUT ── */
+.about-wrap { background: var(--dark); }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-text { font-family: var(--font-display); font-size: 1.25rem; font-weight: 300; line-height: 1.9; color: rgba(242,237,230,0.7); }
+.about-text strong { color: var(--gold); font-weight: 600; font-style: italic; }
+.about-creds { display: flex; flex-direction: column; gap: 16px; }
+.cred {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 20px 24px; border: 1px solid rgba(255,255,255,0.06); background: var(--dark3);
+}
+.cred-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.cred-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.cred-desc { font-size: 12px; color: var(--grey2); line-height: 1.6; }
+
+/* ── CONTACT ── */
+.contact-wrap { background: var(--dark2); text-align: center; }
+.contact-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 48px; }
+.contact-card {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 36px 44px; text-decoration: none; color: var(--white);
+  border: 1px solid rgba(255,255,255,0.07); background: var(--dark3);
+  transition: all 0.3s; min-width: 180px;
+}
+.contact-card:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); transform: translateY(-4px); }
+.contact-card-icon { font-size: 2rem; }
+.contact-card-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+.contact-card-value { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+/* ── BOOKING MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+  align-items: center; justify-content: center; padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--dark2); border: 1px solid rgba(201,168,76,0.2);
+  width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto;
+  animation: modalIn 0.4s var(--ease-out);
+}
+@keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(20px); } to { opacity:1; transform: scale(1) translateY(0); } }
+.modal-header { padding: 28px 32px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: flex-start; }
+.modal-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; }
+.modal-subtitle { font-size: 12px; color: var(--grey2); margin-top: 4px; }
+.modal-close { background: none; border: none; color: var(--grey); font-size: 20px; cursor: pointer; padding: 0; transition: color 0.2s; line-height: 1; }
+.modal-close:hover { color: var(--white); }
+.modal-body { padding: 28px 32px 32px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-group { margin-bottom: 16px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.form-control {
+  width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white); font-family: var(--font-body); font-size: 13px;
+  padding: 12px 14px; outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.form-control:focus { border-color: var(--gold); }
+.form-control option { background: #111; color: #fff; }
+.form-submit {
+  width: 100%; background: var(--gold); color: var(--dark);
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px; border: none; cursor: pointer;
+  margin-top: 8px; transition: background 0.2s;
+}
+.form-submit:hover { background: var(--gold-light); }
+.form-success { display: none; text-align: center; padding: 24px 0; }
+.form-success-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.form-success h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 8px; }
+.form-success p { font-size: 13px; color: var(--grey2); }
+
+/* ── CHATBOT ── */
+.chat-btn {
+  position: fixed; bottom: 28px; right: 28px; z-index: 9998;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--gold); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.chat-btn:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(201,168,76,0.5); }
+.chat-box {
+  display: none; position: fixed; bottom: 96px; right: 28px; z-index: 9997;
+  width: 340px; background: var(--dark2); border: 1px solid rgba(201,168,76,0.25);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+  animation: chatIn 0.3s var(--ease-out);
+  overflow: hidden;
+}
+.chat-box.open { display: flex; flex-direction: column; }
+@keyframes chatIn { from{opacity:0;transform:translateY(16px) scale(0.97)} to{opacity:1;transform:none} }
+.chat-head { background: var(--gold); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+.chat-head-name { font-size: 13px; font-weight: 700; color: var(--dark); letter-spacing: 1px; }
+.chat-head-status { font-size: 10px; color: rgba(8,8,8,0.65); margin-top: 1px; }
+.chat-close { background: none; border: none; font-size: 16px; color: var(--dark); cursor: pointer; }
+.chat-messages { height: 268px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.chat-messages::-webkit-scrollbar { width: 2px; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+.chat-quickbtns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.chat-qbtn { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); color: var(--gold); padding: 5px 12px; font-size: 11px; cursor: pointer; border-radius: 20px; transition: background 0.2s; font-family: var(--font-body); }
+.chat-qbtn:hover { background: rgba(201,168,76,0.18); }
+.bot-msg { background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.15); color: var(--white); padding: 10px 13px; font-size: 13px; line-height: 1.6; max-width: 92%; align-self: flex-start; }
+.user-msg { background: rgba(255,255,255,0.07); color: var(--white); padding: 10px 13px; font-size: 13px; line-height: 1.6; max-width: 92%; align-self: flex-end; }
+.chat-input-row { padding: 10px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; gap: 8px; }
+.chat-input {
+  flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  color: var(--white); padding: 9px 12px; font-size: 13px; outline: none;
+  font-family: var(--font-body); transition: border-color 0.2s;
+}
+.chat-input:focus { border-color: var(--gold); }
+.chat-send { background: var(--gold); color: var(--dark); border: none; padding: 9px 16px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: background 0.2s; }
+.chat-send:hover { background: var(--gold-light); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 40px 56px;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 24px;
+}
+.footer-logo-main { font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 3px; }
+.footer-logo-sub { font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-top: 2px; }
+.footer-copy { font-size: 11px; color: var(--grey); text-align: center; }
+.footer-socials { display: flex; gap: 20px; justify-content: flex-end; }
+.footer-socials a { font-size: 10px; letter-spacing: 2px; color: var(--grey); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+.footer-socials a:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  nav { padding: 18px 32px; }
+  nav.scrolled { padding: 12px 32px; }
+  .nav-links { display: none; }
+  .nav-call { display: none; }
+  .hamburger { display: flex; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 100px 32px 80px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .areas-inner { grid-template-columns: 1fr; }
+  .areas-map-placeholder { display: none; }
+  .vehicle-inner { grid-template-columns: 1fr; }
+  .vehicle-img { min-height: 300px; }
+  .vehicle-img::after { display: none; }
+  .about-inner { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .footer-socials { justify-content: center; }
+}
+@media (max-width: 640px) {
+  .section { padding: 72px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-left { padding: 80px 24px 64px; }
+  nav { padding: 16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#areas" onclick="closeMobile()">Areas</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="tel:+447901756001" style="color:var(--gold)">+44 790 1756 001</a>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-main">GO BY BILLY</span>
+    <span class="nav-logo-sub">VIP Chauffeur Service</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:+447901756001" class="nav-call">+44 790 1756 001</a>
+    <a href="#" class="nav-book" onclick="openBooking(event)"><span>Book Now</span></a>
+    <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-label">
+      <span class="hero-label-dot"></span>
+      Licensed Operator · Pre-Booking Only
+    </div>
+    <h1>
+      VIP Chauffeur &amp;<br>
+      <strong>Transfer Service</strong>
+      in Essex
+    </h1>
+    <p class="hero-desc">Reliable, elegant transport across Chigwell, Loughton, Buckhurst Hill, Woodford, Chingford and Epping. Trusted by prominent clients for over a decade.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary" onclick="openBooking(event)"><span>Book Your Transfer</span></a>
+      <a href="tel:+447901756001" class="btn-secondary">📞 Call Now</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-count="1000">0</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="10">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Rated Service</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Seater Available</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="images/car.jpg" alt="Go By Billy — Executive Škoda Enyaq" id="heroImg">
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Airport Transfers ✦</span>
+    <span class="ticker-item">Business Travel ✦</span>
+    <span class="ticker-item">VIP Transfers ✦</span>
+    <span class="ticker-item">By The Hour ✦</span>
+    <span class="ticker-item">Heathrow ✦</span>
+    <span class="ticker-item">Gatwick ✦</span>
+    <span class="ticker-item">Stansted ✦</span>
+    <span class="ticker-item">Luton ✦</span>
+    <span class="ticker-item">Chigwell ✦</span>
+    <span class="ticker-item">Loughton ✦</span>
+    <span class="ticker-item">Essex ✦</span>
+    <span class="ticker-item">Airport Transfers ✦</span>
+    <span class="ticker-item">Business Travel ✦</span>
+    <span class="ticker-item">VIP Transfers ✦</span>
+    <span class="ticker-item">By The Hour ✦</span>
+    <span class="ticker-item">Heathrow ✦</span>
+    <span class="ticker-item">Gatwick ✦</span>
+    <span class="ticker-item">Stansted ✦</span>
+    <span class="ticker-item">Luton ✦</span>
+    <span class="ticker-item">Chigwell ✦</span>
+    <span class="ticker-item">Loughton ✦</span>
+    <span class="ticker-item">Essex ✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-wrap" id="services">
+  <div class="section-eyebrow reveal">What We Offer</div>
+  <h2 class="section-title reveal reveal-delay-1">Our <strong>Services</strong></h2>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-no">01</div>
+      <div class="service-name">Airport Transfers</div>
+      <p class="service-desc">Punctual, stress-free transfers to and from all major London airports — Heathrow, Gatwick, Stansted, Luton and London City. Flight tracking included.</p>
+      <a href="#" class="service-link" onclick="openBooking(event)">Book Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-no">02</div>
+      <div class="service-name">Business Transfers</div>
+      <p class="service-desc">Executive transport for corporate clients. Arrive at meetings, conferences and events relaxed and on time. Discretion guaranteed.</p>
+      <a href="#" class="service-link" onclick="openBooking(event)">Book Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-no">03</div>
+      <div class="service-name">By The Hour</div>
+      <p class="service-desc">Need a driver for the day or a few hours? Our hourly hire service gives you complete flexibility for shopping trips, events, or multiple stops.</p>
+      <a href="#" class="service-link" onclick="openBooking(event)">Book Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-4">
+      <div class="service-no">04</div>
+      <div class="service-name">VIP Transfers</div>
+      <p class="service-desc">Impress important clients or make a grand entrance. We regularly transport prominent clients who demand the highest standards of service.</p>
+      <a href="#" class="service-link" onclick="openBooking(event)">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- VEHICLE -->
+<section class="vehicle-wrap" id="vehicle">
+  <div class="vehicle-inner">
+    <div class="vehicle-img">
+      <img src="images/car.jpg" alt="Executive Škoda Enyaq">
+    </div>
+    <div class="vehicle-details">
+      <div class="section-eyebrow reveal">The Vehicle</div>
+      <h2 class="section-title reveal reveal-delay-1">Executive<br><strong>Škoda Enyaq</strong></h2>
+      <p class="reveal reveal-delay-2" style="margin-top:20px;font-size:14px;line-height:1.9;color:var(--grey2);">Travel in comfort and style in our executive Škoda Enyaq. Spacious, immaculate, and maintained to the highest standard — perfect for airport transfers, business travel, and VIP journeys across Essex and London.</p>
+      <div class="vehicle-features reveal reveal-delay-3">
+        <div class="feature-row"><div class="feature-check">✓</div> Up to 7 passengers</div>
+        <div class="feature-row"><div class="feature-check">✓</div> Immaculate interior — always clean</div>
+        <div class="feature-row"><div class="feature-check">✓</div> Ample luggage space</div>
+        <div class="feature-row"><div class="feature-check">✓</div> Air conditioning</div>
+        <div class="feature-row"><div class="feature-check">✓</div> Flight tracking on all airport runs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-wrap" id="pricing">
+  <div class="section-eyebrow reveal">Transparent Pricing</div>
+  <h2 class="section-title reveal reveal-delay-1">Fixed Price <strong>Transfers</strong></h2>
+  <div class="pricing-grid">
+    <div class="price-panel reveal reveal-delay-2">
+      <div class="price-panel-title">✈️ Airport Transfers</div>
+      <div class="price-panel-subtitle">From Chigwell, Buckhurst Hill, Loughton & surrounding areas</div>
+      <div class="price-row"><div><div class="price-dest">Heathrow Airport</div></div><div class="price-amount">£110</div></div>
+      <div class="price-row"><div><div class="price-dest">Gatwick Airport</div></div><div class="price-amount">£140</div></div>
+      <div class="price-row"><div><div class="price-dest">Luton Airport</div></div><div class="price-amount">£100</div></div>
+      <div class="price-row"><div><div class="price-dest">Stansted Airport</div></div><div class="price-amount">£70</div></div>
+      <div class="price-row"><div><div class="price-dest">Epping to Heathrow</div></div><div class="price-amount">£120</div></div>
+    </div>
+    <div class="price-panel reveal reveal-delay-3">
+      <div class="price-panel-title">🚗 Local & Hourly</div>
+      <div class="price-panel-subtitle">Flexible options for every journey</div>
+      <div class="price-row"><div><div class="price-dest">Journeys to West End</div></div><div class="price-amount">£65</div></div>
+      <div class="price-row">
+        <div>
+          <div class="price-dest">Chauffeur with your car</div>
+          <div class="price-dest-note">You provide the vehicle</div>
+        </div>
+        <div class="price-amount">from £35</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-dest">Private chauffeur with our car</div>
+          <div class="price-dest-note">By the hour</div>
+        </div>
+        <div class="price-amount">£40/hr</div>
+      </div>
+      <div class="price-note">All prices are fixed. No hidden charges. Flight tracking included on all airport transfers.</div>
+      <div style="margin-top:24px;">
+        <a href="#" class="btn-primary" onclick="openBooking(event)"><span>Get a Quote</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="section areas-wrap" id="areas">
+  <div class="areas-inner">
+    <div>
+      <div class="section-eyebrow reveal">Where We Operate</div>
+      <h2 class="section-title reveal reveal-delay-1">Areas We <strong>Serve</strong></h2>
+      <div class="areas-list reveal reveal-delay-2">
+        <div class="area-row"><div class="area-name">Chigwell</div><div class="area-service">VIP Chauffeur Service</div></div>
+        <div class="area-row"><div class="area-name">Loughton</div><div class="area-service">Airport Transfer Service</div></div>
+        <div class="area-row"><div class="area-name">Buckhurst Hill</div><div class="area-service">Executive Car Service</div></div>
+        <div class="area-row"><div class="area-name">Woodford</div><div class="area-service">Private Driver Service</div></div>
+        <div class="area-row"><div class="area-name">Chingford</div><div class="area-service">Chauffeur Service</div></div>
+        <div class="area-row"><div class="area-name">Epping</div><div class="area-service">Transfer Service</div></div>
+        <div class="area-row"><div class="area-name">London & Beyond</div><div class="area-service">All Major Airports</div></div>
+      </div>
+    </div>
+    <div class="areas-map-placeholder reveal reveal-delay-3">
+      <div style="position:relative;z-index:1;text-align:center;">
+        <div class="map-icon">📍</div>
+        <div style="font-family:var(--font-display);font-size:1.3rem;color:var(--gold);margin-bottom:6px;">Essex & London</div>
+        <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey);">Full coverage of the region</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews-wrap" id="reviews">
+  <div class="section-eyebrow reveal">What Clients Say</div>
+  <h2 class="section-title reveal reveal-delay-1">1,000+ <strong>Happy Customers</strong></h2>
+  <div class="reviews-grid" style="margin-top:56px;">
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Absolutely outstanding service. Billy is always on time, the car is immaculate, and he makes every journey a pleasure. Wouldn't use anyone else."</p>
+      <div class="review-author">Sarah M.</div>
+      <div class="review-detail">Chigwell · Airport Transfer</div>
+    </div>
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Used Go By Billy for a corporate event. Professional, discreet, and the vehicle was spotless. Our clients were very impressed. Highly recommended."</p>
+      <div class="review-author">James T.</div>
+      <div class="review-detail">Loughton · Business Transfer</div>
+    </div>
+    <div class="review-card reveal reveal-delay-3">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"10 years I've been using Billy. Never once been late. Reliable, friendly, and genuinely cares about his customers. The best in Essex."</p>
+      <div class="review-author">Patricia H.</div>
+      <div class="review-detail">Buckhurst Hill · Regular Client</div>
+    </div>
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Booked for a wedding and everything was perfect. Pristine vehicle, impeccably dressed, and incredibly professional throughout. Thank you Billy!"</p>
+      <div class="review-author">Michael &amp; Emma R.</div>
+      <div class="review-detail">Woodford · Wedding Transfer</div>
+    </div>
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Always my first call for Heathrow runs. Fixed price, no surprises, and he tracks the flights so he's always there on time. Five stars every single time."</p>
+      <div class="review-author">David K.</div>
+      <div class="review-detail">Chingford · Airport Transfer</div>
+    </div>
+    <div class="review-card reveal reveal-delay-3">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Needed a driver for a full day of meetings across London. Smooth, professional, and stress-free from start to finish. Will absolutely book again."</p>
+      <div class="review-author">Fiona B.</div>
+      <div class="review-detail">Epping · Hourly Hire</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-wrap" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="section-eyebrow reveal">About Billy</div>
+      <h2 class="section-title reveal reveal-delay-1" style="margin-bottom:28px;">A Service Built on <strong>Trust</strong></h2>
+      <p class="about-text reveal reveal-delay-2">
+        Go By Billy was built on one simple principle — <strong>your time matters</strong>. With over a decade serving Essex and London's most discerning clients, Billy brings a personal touch that larger companies simply can't match. Whether it's a 5am Heathrow run or a VIP corporate event, you'll always receive the same <strong>impeccable standard</strong> of service.
+      </p>
+    </div>
+    <div class="about-creds reveal reveal-delay-3">
+      <div class="cred">
+        <div class="cred-icon">🛡️</div>
+        <div>
+          <div class="cred-title">Licensed Operator</div>
+          <div class="cred-desc">Fully licensed and insured private hire operator. You're in safe, professional hands.</div>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-icon">✈️</div>
+        <div>
+          <div class="cred-title">Flight Tracking Included</div>
+          <div class="cred-desc">We monitor your flight live so we're always there when you land — delays and all.</div>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-icon">💳</div>
+        <div>
+          <div class="cred-title">Fixed Prices, No Surprises</div>
+          <div class="cred-desc">Transparent pricing on every journey. What you're quoted is exactly what you pay.</div>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-icon">⭐</div>
+        <div>
+          <div class="cred-title">10+ Years Experience</div>
+          <div class="cred-desc">Over a decade of trusted service, with 1,000+ satisfied customers across Essex.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-wrap" id="contact">
+  <div class="section-eyebrow reveal">Get In Touch</div>
+  <h2 class="section-title reveal reveal-delay-1" style="margin-bottom:16px;">Ready to <strong>Book?</strong></h2>
+  <p class="reveal reveal-delay-2" style="margin-top:8px;font-size:14px;color:var(--grey2);">Pre-booking only. Contact us to reserve your transfer — we recommend booking at least 24 hours in advance.</p>
+  <div class="contact-cards reveal reveal-delay-3">
+    <a href="tel:+447901756001" class="contact-card">
+      <div class="contact-card-icon">📞</div>
+      <div class="contact-card-label">Call Us</div>
+      <div class="contact-card-value">+44 790 1756 001</div>
+    </a>
+    <a href="https://wa.me/447901756001" target="_blank" class="contact-card">
+      <div class="contact-card-icon">💬</div>
+      <div class="contact-card-label">WhatsApp</div>
+      <div class="contact-card-value">Message Us</div>
+    </a>
+    <a href="mailto:info@gobybilly.co.uk" class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-value">info@gobybilly.co.uk</div>
+    </a>
+    <a href="#" class="contact-card" onclick="openBooking(event)">
+      <div class="contact-card-icon">📅</div>
+      <div class="contact-card-label">Online</div>
+      <div class="contact-card-value">Book a Transfer</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo-main">GO BY BILLY</div>
+    <div class="footer-logo-sub">VIP Chauffeur &amp; Transfer Service</div>
+  </div>
+  <div class="footer-copy">
+    Serving Chigwell · Loughton · Buckhurst Hill · Woodford · Chingford · Epping<br>
+    <span style="margin-top:6px;display:block;">© 2026 Go By Billy · Licensed Operator</span>
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.facebook.com/profile.php?id=100079202824079" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/gobybilly/" target="_blank">Instagram</a>
+    <a href="https://twitter.com/GobyBilly" target="_blank">Twitter</a>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeBookingOutside(event)">
+  <div class="modal" id="bookingModal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Book a Transfer</div>
+        <div class="modal-subtitle">Pre-booking only — we'll confirm your journey promptly.</div>
+      </div>
+      <button class="modal-close" onclick="closeBooking()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="bookingFormWrap">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" placeholder="John" id="f-firstname">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" placeholder="Smith" id="f-lastname">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" placeholder="+44 7xxx xxxxxx" id="f-phone">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Required</label>
+          <select class="form-control" id="f-service">
+            <option value="">Select a service...</option>
+            <option>Airport Transfer — Heathrow (£110)</option>
+            <option>Airport Transfer — Gatwick (£140)</option>
+            <option>Airport Transfer — Luton (£100)</option>
+            <option>Airport Transfer — Stansted (£70)</option>
+            <option>Business Transfer</option>
+            <option>By The Hour (from £35/hr)</option>
+            <option>VIP Transfer</option>
+            <option>West End Journey (£65)</option>
+            <option>Other / Custom Journey</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Pickup Date</label>
+            <input type="date" class="form-control" id="f-date">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pickup Time</label>
+            <input type="time" class="form-control" id="f-time">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pickup Location</label>
+          <input type="text" class="form-control" placeholder="Address or postcode" id="f-from">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Destination</label>
+          <input type="text" class="form-control" placeholder="Address, airport, or postcode" id="f-to">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Additional Notes</label>
+          <textarea class="form-control" rows="3" placeholder="Flight number, number of passengers, special requests..." style="resize:vertical;" id="f-notes"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitBooking()">Send Booking Request</button>
+      </div>
+      <div class="form-success" id="bookingSuccess">
+        <div class="form-success-icon">✅</div>
+        <h3>Booking Request Sent!</h3>
+        <p>Thank you. Billy will be in touch shortly to confirm your transfer.<br><br>
+        For urgent enquiries call <a href="tel:+447901756001" style="color:var(--gold);">+44 790 1756 001</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHATBOT -->
+<button class="chat-btn" id="chatBtn" onclick="toggleChat()">💬</button>
+<div class="chat-box" id="chatBox">
+  <div class="chat-head">
+    <div>
+      <div class="chat-head-name">GO BY BILLY</div>
+      <div class="chat-head-status">AI Assistant · Usually replies instantly</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chatMessages" class="chat-messages">
+    <div class="bot-msg">👋 Hi! I'm Billy's assistant. I can help with pricing, availability, and booking. How can I help?</div>
+    <div class="chat-quickbtns">
+      <button class="chat-qbtn" onclick="quickReply('Airport transfer prices')">✈️ Airport prices</button>
+      <button class="chat-qbtn" onclick="quickReply('Book a transfer')">📅 Book now</button>
+      <button class="chat-qbtn" onclick="quickReply('Areas you cover')">📍 Areas covered</button>
+      <button class="chat-qbtn" onclick="quickReply('Hourly hire')">⏱️ Hourly hire</button>
+    </div>
+  </div>
+  <div class="chat-input-row">
+    <input id="chatInput" class="chat-input" type="text" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendMsg()">
+    <button class="chat-send" onclick="sendMsg()">Send</button>
+  </div>
+</div>
+
+<script>
+/* ── CURSOR GLOW ── */
+document.addEventListener('mousemove', e => {
+  const g = document.getElementById('cursorGlow');
+  g.style.left = e.clientX + 'px';
+  g.style.top = e.clientY + 'px';
+});
+
+/* ── NAV SCROLL ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── HAMBURGER ── */
+function toggleMobile() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+/* ── HERO IMAGE PARALLAX ── */
+window.addEventListener('scroll', () => {
+  const img = document.getElementById('heroImg');
+  if (img) img.style.transform = `scale(1.05) translateY(${window.scrollY * 0.08}px)`;
+});
+
+/* ── REVEAL ON SCROLL ── */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+/* ── ANIMATED COUNTERS ── */
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = +el.dataset.count;
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = Math.floor(current).toLocaleString() + '+';
+    }, 25);
+  });
+}
+const heroObserver = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) { animateCounters(); heroObserver.disconnect(); }
+}, { threshold: 0.5 });
+heroObserver.observe(document.querySelector('.hero-stats'));
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+/* ── BOOKING MODAL ── */
+function openBooking(e) {
+  if (e) e.preventDefault();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Set min date to today
+  document.getElementById('f-date').min = new Date().toISOString().split('T')[0];
+}
+function closeBooking() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeBookingOutside(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeBooking();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBooking(); });
+
+function submitBooking() {
+  const fields = ['f-firstname','f-phone','f-service','f-date','f-from','f-to'];
+  const missing = fields.filter(id => !document.getElementById(id).value.trim());
+  if (missing.length > 0) {
+    alert('Please fill in all required fields before submitting.');
+    return;
+  }
+  document.getElementById('bookingFormWrap').style.display = 'none';
+  document.getElementById('bookingSuccess').style.display = 'block';
+  setTimeout(closeBooking, 5000);
+}
+
+/* ── CHATBOT ── */
+function toggleChat() {
+  const box = document.getElementById('chatBox');
+  box.classList.toggle('open');
+}
+
+const responses = {
+  'airport': '✈️ <strong>Airport Transfers:</strong><br>• Heathrow: <strong>£110</strong><br>• Gatwick: <strong>£140</strong><br>• Luton: <strong>£100</strong><br>• Stansted: <strong>£70</strong><br>• Epping to Heathrow: <strong>£120</strong><br><br>All prices are fixed — no hidden charges. Flight tracking included.',
+  'book': '📅 To book, call or WhatsApp Billy directly:<br><br>📞 <a href="tel:+447901756001" style="color:var(--gold);">+44 790 1756 001</a><br>💬 <a href="https://wa.me/447901756001" style="color:var(--gold);">WhatsApp Us</a><br><br>Or use the <a href="#" onclick="toggleChat();openBooking(event)" style="color:var(--gold);">online booking form</a>. Pre-booking only — 24hrs notice recommended.',
+  'areas': '📍 <strong>Areas Served:</strong><br>• Chigwell<br>• Loughton<br>• Buckhurst Hill<br>• Woodford<br>• Chingford<br>• Epping<br>• London & all major airports',
+  'hourly': '⏱️ <strong>Hourly Hire:</strong><br>• Your car, our driver: from <strong>£35/hr</strong><br>• Our car & driver: <strong>£40/hr</strong><br><br>Perfect for shopping, events, or multiple stops.',
+  'west': '🏙️ West End journeys from <strong>£65</strong>. Call <a href="tel:+447901756001" style="color:var(--gold);">+44 790 1756 001</a> to book.',
+  'default': 'Happy to help! For specific enquiries, please reach Billy directly:<br><br>📞 <a href="tel:+447901756001" style="color:var(--gold);"><strong>+44 790 1756 001</strong></a><br>💬 <a href="https://wa.me/447901756001" style="color:var(--gold);">WhatsApp</a>'
+};
+
+function getResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('heathrow')||m.includes('gatwick')||m.includes('luton')||m.includes('stansted')||m.includes('airport')||m.includes('price')||m.includes('cost')||m.includes('how much')) return responses['airport'];
+  if (m.includes('book')||m.includes('reserve')||m.includes('schedule')) return responses['book'];
+  if (m.includes('area')||m.includes('cover')||m.includes('chigwell')||m.includes('loughton')||m.includes('essex')) return responses['areas'];
+  if (m.includes('hour')||m.includes('hire')) return responses['hourly'];
+  if (m.includes('west end')||m.includes('london')) return responses['west'];
+  return responses['default'];
+}
+
+function addMsg(text, type) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = type === 'bot' ? 'bot-msg' : 'user-msg';
+  div.innerHTML = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendMsg() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  addMsg(msg, 'user');
+  input.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'bot-msg'; typing.textContent = '…';
+  document.getElementById('chatMessages').appendChild(typing);
+  setTimeout(() => {
+    typing.remove();
+    addMsg(getResponse(msg), 'bot');
+  }, 700);
+}
+
+function quickReply(msg) {
+  addMsg(msg, 'user');
+  setTimeout(() => addMsg(getResponse(msg), 'bot'), 700);
+}
+</script>
+
+</body>
+</html>
