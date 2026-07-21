@@ -802,7 +802,7 @@ footer {
       </div>
     </div>
     <div class="vehicle-img">
-      <img src="images/skoda.jpg.jpeg" alt="Škoda Kodiaq — 7 seater group transfer Essex">
+      <img src="images/skoda.jpg" alt="Škoda Kodiaq — 7 seater group transfer Essex">
     </div>
   </div>
 </section>
@@ -1348,23 +1348,21 @@ function toggleChat() {
   box.classList.toggle('open');
 }
 
-const responses = {
-  'airport': '✈️ <strong>Airport Transfers:</strong><br>• Heathrow: <strong>£110</strong><br>• Gatwick: <strong>£140</strong><br>• Luton: <strong>£100</strong><br>• Stansted: <strong>£70</strong><br>• Epping to Heathrow: <strong>£120</strong><br><br>All prices are fixed — no hidden charges. Flight tracking included.',
-  'book': '📅 To book, call or WhatsApp Billy directly:<br><br>📞 <a href="tel:+447901756001" style="color:var(--gold);">+44 790 1756 001</a><br>💬 <a href="https://wa.me/447901756001" style="color:var(--gold);">WhatsApp Us</a><br><br>Or use the <a href="#" onclick="toggleChat();openBooking(event)" style="color:var(--gold);">online booking form</a>. Pre-booking only — 24hrs notice recommended.',
-  'areas': '📍 <strong>Areas Served:</strong><br>• Chigwell<br>• Loughton<br>• Buckhurst Hill<br>• Woodford<br>• Chingford<br>• Epping<br>• London & all major airports',
-  'hourly': '⏱️ <strong>Hourly Hire:</strong><br>• Your car, our driver: from <strong>£35/hr</strong><br>• Our car & driver: <strong>£40/hr</strong><br><br>Perfect for shopping, events, or multiple stops.',
-  'west': '🏙️ West End journeys from <strong>£65</strong>. Call <a href="tel:+447901756001" style="color:var(--gold);">+44 790 1756 001</a> to book.',
-  'default': 'Happy to help! For specific enquiries, please reach Billy directly:<br><br>📞 <a href="tel:+447901756001" style="color:var(--gold);"><strong>+44 790 1756 001</strong></a><br>💬 <a href="https://wa.me/447901756001" style="color:var(--gold);">WhatsApp</a>'
-};
+let gbbSessionId = 'web-' + Math.random().toString(36).slice(2) + Date.now();
 
-function getResponse(msg) {
-  const m = msg.toLowerCase();
-  if (m.includes('heathrow')||m.includes('gatwick')||m.includes('luton')||m.includes('stansted')||m.includes('airport')||m.includes('price')||m.includes('cost')||m.includes('how much')) return responses['airport'];
-  if (m.includes('book')||m.includes('reserve')||m.includes('schedule')) return responses['book'];
-  if (m.includes('area')||m.includes('cover')||m.includes('chigwell')||m.includes('loughton')||m.includes('essex')) return responses['areas'];
-  if (m.includes('hour')||m.includes('hire')) return responses['hourly'];
-  if (m.includes('west end')||m.includes('london')) return responses['west'];
-  return responses['default'];
+async function getResponse(msg) {
+  try {
+    const resp = await fetch('/ai-chat/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({session_id: gbbSessionId, message: msg})
+    });
+    const data = await resp.json();
+    if (data.success) return data.reply;
+    return 'Sorry, I could not process that. Please call or WhatsApp us at <a href="tel:+447901756001" style="color:var(--gold);">+44 790 1756 001</a>.';
+  } catch (e) {
+    return 'Sorry, I am having trouble connecting. Please call or WhatsApp us at <a href="tel:+447901756001" style="color:var(--gold);">+44 790 1756 001</a>.';
+  }
 }
 
 function addMsg(text, type) {
@@ -1376,24 +1374,30 @@ function addMsg(text, type) {
   msgs.scrollTop = msgs.scrollHeight;
 }
 
-function sendMsg() {
+async function sendMsg() {
   const input = document.getElementById('chatInput');
   const msg = input.value.trim();
   if (!msg) return;
   addMsg(msg, 'user');
   input.value = '';
   const typing = document.createElement('div');
-  typing.className = 'bot-msg'; typing.textContent = '…';
+  typing.className = 'bot-msg';
+  typing.textContent = '\u2026';
   document.getElementById('chatMessages').appendChild(typing);
-  setTimeout(() => {
-    typing.remove();
-    addMsg(getResponse(msg), 'bot');
-  }, 700);
+  const reply = await getResponse(msg);
+  typing.remove();
+  addMsg(reply, 'bot');
 }
 
-function quickReply(msg) {
+async function quickReply(msg) {
   addMsg(msg, 'user');
-  setTimeout(() => addMsg(getResponse(msg), 'bot'), 700);
+  const typing = document.createElement('div');
+  typing.className = 'bot-msg';
+  typing.textContent = '\u2026';
+  document.getElementById('chatMessages').appendChild(typing);
+  const reply = await getResponse(msg);
+  typing.remove();
+  addMsg(reply, 'bot');
 }
 
 // Email obfuscation - prevents spam scrapers
